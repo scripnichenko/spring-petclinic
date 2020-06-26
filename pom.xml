@@ -26,8 +26,10 @@
         <webjars-jquery-ui.version>1.11.4</webjars-jquery-ui.version>
         <webjars-jquery.version>2.2.4</webjars-jquery.version>
         <wro4j.version>1.8.0</wro4j.version>
-
         <jacoco.version>0.8.2</jacoco.version>
+
+        <!--Gatling Simulation class-->
+        <simulation.class.name>"simulations.PetClinicSimulation"</simulation.class.name>
 
     </properties>
 
@@ -223,6 +225,18 @@
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
                 <version>3.0.5</version>
+                <configuration>
+                    <simulationsFolder> ${project.basedir}/src/test/scala/simulations</simulationsFolder>
+                    <runDescription>Gatling-Performance-Run</runDescription>
+                    <runMultipleSimulations>false</runMultipleSimulations>
+                    <resultsFolder>${project.basedir}/target/gatling/</resultsFolder>
+                    <configFolder>${project.basedir}/src/test/resources</configFolder>
+                    <resourcesFolder>${project.basedir}/src/test/resources/data</resourcesFolder>
+                    <jvmArgs>
+                        <jvmArg>-DactiveUsers=5</jvmArg>
+                        <jvmArg>-DdurationInMinutes=2</jvmArg>
+                    </jvmArgs>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>

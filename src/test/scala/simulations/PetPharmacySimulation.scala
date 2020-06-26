@@ -6,7 +6,7 @@ import io.gatling.core.scenario.Simulation
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
 
-class PetClinicSimulation extends Simulation {
+class PetPharmacySimulation extends Simulation {
   //  val scn = scenario("MyFirstScenario").repeat(30, "n") {
   //    exec(
   //      http("Find Owner - API")
